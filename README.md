@@ -1,34 +1,23 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Design Token Editor
 
-## Getting Started
+Hello folks! Welcome to my pet project – a tool to display design tokens as outlined in the [W3C Community Group Draft](https://design-tokens.github.io/community-group/format/).
 
-First, run the development server:
+![Example UI](example.png)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## What's this all about?
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Design tokens are the tiny visual atoms (think colors, fonts, margins, etc.) that makeup a design system. The idea here is to visualize these tokens in a neat little UI.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## The Grand Vision (and the reality...)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Ultimately, I dream of transforming this tool into a mighty editor for these design tokens. Sounds fun, right?
 
-## Learn More
+But, let's keep it real. This is my first project, and my time to work on it is as rare as an undiscovered meme on the internet.
 
-To learn more about Next.js, take a look at the following resources:
+So, will this tool become the next big thing in design token management or will it join the noble league of admirable yet abandoned projects? Only time (and my motivation level) will tell. 😅
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Stay Tuned!
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Join me on this journey of excitement, code, occasional despair, and a lot of fun. Whether we succeed or fail, we'll do it with flair!
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Happy coding! 🚀💻
