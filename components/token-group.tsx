@@ -21,7 +21,7 @@ const TokenGroup = ({ group }: TokenGroupProps) => {
         ) : (
           <div
             key={index}
-            className="mb-2 p-2 pb-0 border-l border-b border-black/10 "
+            className="mt-4 p-2 pt-0 pr-0 border-l border-b border-black/10 "
           >
             <h2 className="mb-1 text-xs">{key}</h2>
             <TokenGroup group={value} />

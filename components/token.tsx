@@ -1,4 +1,5 @@
 import ColorToken from "./color-token";
+import FontFamilyToken from "./font-family-token";
 import FontWeightToken from "./font-weight-token";
 
 export interface DesignToken {
@@ -36,9 +37,7 @@ const Token = ({ token, name }: TokenProps) => {
       break;
 
     case "fontFamily":
-      visualization = (
-        <p style={{ fontFamily: $value, fontWeight: $value }}>Font Family</p>
-      );
+      visualization = <FontFamilyToken fontFamily={$value}></FontFamilyToken>;
       break;
 
     case "fontWeight":
