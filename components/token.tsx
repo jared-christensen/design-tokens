@@ -92,7 +92,7 @@ const Token = ({ token, name }: TokenProps) => {
       <div className="font-semibold ">{name}</div>
       <div className="text-sm text-gray-500 ">{$type}</div>
       <div className="text-sm text-gray-500 ">{$value}</div>
-      <div className="justify-self-center ">{visualization}</div>
+      <div>{visualization}</div>
     </div>
   );
 };
