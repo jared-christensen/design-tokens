@@ -1,18 +1,18 @@
-import DesignToken, { Token } from "@/components/design-token";
+import { DesignToken } from "@/components/token";
 import "../public/styles.css";
 import tokenData from "../tokens.json";
+import TokenGroup from "@/components/token-group";
 
 interface TokenData {
-  [key: string]: Token;
+  [key: string]: DesignToken | TokenData;
 }
+
 export default function Home() {
   const tokens: TokenData = tokenData as unknown as TokenData;
 
   return (
-    <main>
-      {Object.entries(tokens).map(([name, token]: [string, Token], index) => (
-        <DesignToken key={index} name={name} token={{ ...token }} />
-      ))}
+    <main className="p-2">
+      <TokenGroup group={tokens} />
     </main>
   );
 }

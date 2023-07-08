@@ -1,4 +1,7 @@
-export interface Token {
+import ColorToken from "./color-token";
+import FontWeightToken from "./font-weight-token";
+
+export interface DesignToken {
   $value: string;
   $type:
     | "color"
@@ -11,26 +14,24 @@ export interface Token {
   $description?: string;
 }
 
-interface DesignTokenProps {
-  token: Token;
+interface TokenProps {
+  token: DesignToken;
   name: string;
 }
 
-const DesignToken = ({ token, name }: DesignTokenProps) => {
+const Token = ({ token, name }: TokenProps) => {
   const { $value, $type } = token;
 
   let visualization;
 
   switch ($type) {
     case "color":
-      visualization = (
-        <div className="w-12 h-12" style={{ backgroundColor: $value }}></div>
-      );
+      visualization = <ColorToken color={$value}></ColorToken>;
       break;
 
     case "dimension":
       visualization = (
-        <div className="border" style={{ width: $value, height: $value }}></div>
+        <div className="bg-blue-500 h-6" style={{ width: $value }}></div>
       );
       break;
 
@@ -41,16 +42,14 @@ const DesignToken = ({ token, name }: DesignTokenProps) => {
       break;
 
     case "fontWeight":
-      visualization = (
-        <p style={{ fontFamily: $value, fontWeight: $value }}>Font Weight</p>
-      );
+      visualization = <FontWeightToken fontWeight={$value}></FontWeightToken>;
       break;
 
     case "duration":
       visualization = (
-        <div className="w-24 h-2 bg-gray-200 relative">
+        <div className="w-24 h-6 bg-gray-200 relative">
           <div
-            className="h-2 bg-blue-500 absolute left-0"
+            className="h-6 bg-blue-500 absolute left-0"
             style={{
               animationName: "width",
               animationDuration: `${$value}`,
@@ -65,9 +64,9 @@ const DesignToken = ({ token, name }: DesignTokenProps) => {
 
     case "cubicBezier":
       visualization = (
-        <div className="w-24 h-2 bg-gray-200 relative">
+        <div className="w-24 h-6 bg-gray-200 relative">
           <div
-            className="h-2 bg-blue-500 absolute left-0"
+            className="h-6 bg-blue-500 absolute left-0"
             style={{
               animationName: "width",
               animationDuration: `1s`,
@@ -89,7 +88,7 @@ const DesignToken = ({ token, name }: DesignTokenProps) => {
   }
 
   return (
-    <div className="mb-4 p-2 border-b border-gray-200 grid grid-cols-4 gap-4 items-center">
+    <div className="my-px p-1 bg-white grid grid-cols-4 gap-4 items-center">
       <div className="font-semibold ">{name}</div>
       <div className="text-sm text-gray-500 ">{$type}</div>
       <div className="text-sm text-gray-500 ">{$value}</div>
@@ -98,4 +97,4 @@ const DesignToken = ({ token, name }: DesignTokenProps) => {
   );
 };
 
-export default DesignToken;
+export default Token;
