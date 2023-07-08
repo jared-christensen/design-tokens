@@ -1,23 +1,8 @@
-@keyframes progress-bar {
+@keyframes width {
   0% {
     width: 0%;
   }
-  50% {
+  100% {
     width: 100%;
-  }
-  100% {
-    width: 0%;
-  }
-}
-
-@keyframes move {
-  0% {
-    transform: translateX(0);
-  }
-  50% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(0);
   }
 }

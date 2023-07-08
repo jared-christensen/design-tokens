@@ -47,13 +47,16 @@ const DesignToken = ({ token, name }: DesignTokenProps) => {
       break;
 
     case "duration":
-      const durationInSeconds = parseFloat($value);
       visualization = (
-        <div className="w-24 h-1 bg-gray-200 relative">
+        <div className="w-24 h-2 bg-gray-200 relative">
           <div
-            className="h-1 bg-blue-500 absolute left-0"
+            className="h-2 bg-blue-500 absolute left-0"
             style={{
-              animation: `progress-bar ${durationInSeconds}s ease-in-out infinite`,
+              animationName: "width",
+              animationDuration: `${$value}`,
+              animationIterationCount: "infinite",
+              animationDirection: "alternate",
+              animationTimingFunction: "linear",
             }}
           />
         </div>
@@ -62,11 +65,15 @@ const DesignToken = ({ token, name }: DesignTokenProps) => {
 
     case "cubicBezier":
       visualization = (
-        <div className="w-8 h-4 bg-gray-200 relative overflow-hidden">
+        <div className="w-24 h-2 bg-gray-200 relative">
           <div
-            className="h-4 w-4 bg-blue-500 absolute left-0"
+            className="h-2 bg-blue-500 absolute left-0"
             style={{
-              animation: `move 2s ${$value} infinite`,
+              animationName: "width",
+              animationDuration: `1s`,
+              animationIterationCount: "infinite",
+              animationDirection: "alternate",
+              animationTimingFunction: `${$value}`,
             }}
           />
         </div>
