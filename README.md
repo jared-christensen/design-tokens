@@ -22,10 +22,15 @@ So, will this tool become the next big thing in design token management or will 
 2. Once the installation is complete, run `npm run dev` to start the project.
 3. Now, you can edit the `tokens.json` file to change the visualized design tokens.
 
-**Note:** Currently, this project does not support [Groups](https://design-tokens.github.io/community-group/format/#groups) or [Composite Types](https://design-tokens.github.io/community-group/format/#composite-types) from the Design Tokens Community Group Draft.
+**Note:** Currently, this project does not support [Composite Types](https://design-tokens.github.io/community-group/format/#composite-types) from the Design Tokens Community Group Draft.
 
 ## Stay Tuned!
 
 Join me on this journey of excitement, code, occasional despair, and a lot of fun. Whether we succeed or fail, we'll do it with flair!
+
+Next up
+
+- [alias-reference](https://design-tokens.github.io/community-group/format/#alias-reference)
+- [composite-design-token](https://design-tokens.github.io/community-group/format/#composite-design-token)
 
 Happy coding! 🚀💻
