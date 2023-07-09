@@ -1,6 +1,10 @@
 import ColorToken from "./color-token";
+import CubicBezierToken from "./cubic-bezier-token";
+import DimensionToken from "./dimension-token";
+import DurationToken from "./duration-token";
 import FontFamilyToken from "./font-family-token";
 import FontWeightToken from "./font-weight-token";
+import NumberToken from "./number-token";
 
 export interface DesignToken {
   $value: string;
@@ -21,7 +25,7 @@ interface TokenProps {
 }
 
 const Token = ({ token, name }: TokenProps) => {
-  const { $value, $type } = token;
+  const { $value, $type, $description } = token;
 
   let visualization;
 
@@ -31,9 +35,7 @@ const Token = ({ token, name }: TokenProps) => {
       break;
 
     case "dimension":
-      visualization = (
-        <div className="bg-blue-500 h-6" style={{ width: $value }}></div>
-      );
+      visualization = <DimensionToken dimension={$value}></DimensionToken>;
       break;
 
     case "fontFamily":
@@ -45,41 +47,17 @@ const Token = ({ token, name }: TokenProps) => {
       break;
 
     case "duration":
-      visualization = (
-        <div className="w-24 h-6 bg-gray-200 relative">
-          <div
-            className="h-6 bg-blue-500 absolute left-0"
-            style={{
-              animationName: "width",
-              animationDuration: `${$value}`,
-              animationIterationCount: "infinite",
-              animationDirection: "alternate",
-              animationTimingFunction: "linear",
-            }}
-          />
-        </div>
-      );
+      visualization = <DurationToken duration={$value}></DurationToken>;
       break;
 
     case "cubicBezier":
       visualization = (
-        <div className="w-24 h-6 bg-gray-200 relative">
-          <div
-            className="h-6 bg-blue-500 absolute left-0"
-            style={{
-              animationName: "width",
-              animationDuration: `1s`,
-              animationIterationCount: "infinite",
-              animationDirection: "alternate",
-              animationTimingFunction: `${$value}`,
-            }}
-          />
-        </div>
+        <CubicBezierToken cubicBezier={$value}></CubicBezierToken>
       );
       break;
 
     case "number":
-      visualization = <div>{$value}</div>;
+      visualization = <NumberToken number={$value}></NumberToken>;
       break;
 
     default:
@@ -88,10 +66,13 @@ const Token = ({ token, name }: TokenProps) => {
 
   return (
     <div className="my-px p-1 bg-white grid grid-cols-4 gap-4 items-center">
-      <div className="font-semibold ">{name}</div>
+      <div>
+        <div className="font-semibold ">{name}</div>
+      </div>
       <div className="text-sm text-gray-500 ">{$type}</div>
       <div className="text-sm text-gray-500 ">{$value}</div>
       <div>{visualization}</div>
+      {/* <div className="text-sm text-gray-500 col-span-4">{$description}</div> */}
     </div>
   );
 };
