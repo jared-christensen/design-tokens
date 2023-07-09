@@ -1,18 +1,14 @@
-import { DesignToken } from "@/components/token";
+import { DesignTokens } from "@/types";
 import "../public/styles.css";
 import tokenData from "../tokens.json";
-import TokenGroup from "@/components/token-group";
-
-interface TokenData {
-  [key: string]: DesignToken | TokenData;
-}
+import DesignTokensDisplay from "@/components/design-tokens-display";
 
 export default function Home() {
-  const tokens: TokenData = tokenData as unknown as TokenData;
+  const tokens = tokenData as DesignTokens;
 
   return (
     <main className="p-2">
-      <TokenGroup group={tokens} />
+      <DesignTokensDisplay tokens={tokens} />
     </main>
   );
 }
