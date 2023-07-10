@@ -13,8 +13,26 @@ type TokenTypes =
   | "gradient"
   | "typography";
 
-type ShadowToken = {
-  $type: "shadow";
+type BaseToken = {
+  $description?: string;
+  $extention?: string;
+};
+
+interface ColorToken extends BaseToken {
+  $type?: "color";
+  $value: string;
+}
+
+interface DimensionToken extends BaseToken {
+  $type?: "dimension";
+  $value: string;
+}
+interface DesignToken extends BaseToken {
+  $type?: TokenTypes;
+  $value: string | number;
+}
+interface ShadowToken extends BaseToken {
+  $type?: "shadow";
   $value: {
     color: string;
     offsetX: string;
@@ -22,12 +40,17 @@ type ShadowToken = {
     blur: string;
     spread: string;
   };
-};
+}
 
-interface DesignToken {
-  $type: TokenTypes;
-  $value: string | number;
-  $description?: string;
+interface TypographyToken extends BaseToken {
+  $type?: "typography";
+  $value: {
+    fontFamily: string;
+    fontSize: string;
+    fontWeight: string;
+    letterSpacing: string;
+    lineHeight: number;
+  };
 }
 
 interface DesignTokenGroup {
