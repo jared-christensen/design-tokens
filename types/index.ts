@@ -1,13 +1,11 @@
-type Types =
+type TokenTypes =
   | "color"
   | "dimension"
   | "fontFamily"
   | "fontWeight"
   | "duration"
   | "cubicBezier"
-  | "number";
-
-type CompositeTypes =
+  | "number"
   | "strokeStyle"
   | "border"
   | "transition"
@@ -15,24 +13,25 @@ type CompositeTypes =
   | "gradient"
   | "typography";
 
-interface CompositeValue {
-  [key: string]: string | number;
-}
+type ShadowToken = {
+  $type: "shadow";
+  $value: {
+    color: string;
+    offsetX: string;
+    offsetY: string;
+    blur: string;
+    spread: string;
+  };
+};
 
 interface DesignToken {
-  $type: Types;
+  $type: TokenTypes;
   $value: string | number;
   $description?: string;
 }
 
-interface CompositeDesignToken {
-  $type: CompositeTypes;
-  $value: CompositeValue;
-  $description?: string;
-}
-
 interface DesignTokenGroup {
-  [key: string]: DesignToken | CompositeDesignToken | DesignTokenGroup;
+  [key: string]: DesignToken | DesignTokenGroup;
 }
 
 export type DesignTokens = DesignTokenGroup;
